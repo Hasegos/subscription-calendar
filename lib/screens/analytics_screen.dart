@@ -330,44 +330,7 @@ class AnalyticsScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                ],
-                // 향후 확장 기능
-                Container(
-                  padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.grey.shade100, Colors.grey.shade200],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '향후 확장 기능',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey.shade700,
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      ...const [
-                        '• 월별 지출 추이 그래프',
-                        '• 절감 추천 (미사용 구독 알림)',
-                        '• 연간 지출 분석',
-                      ].map((text) => Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Text(
-                              text,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey.shade600,
-                              ),
-                            ),
-                          )),
-                    ],
-                  ),
-                ),
+                ]
               ],
             ),
     );
