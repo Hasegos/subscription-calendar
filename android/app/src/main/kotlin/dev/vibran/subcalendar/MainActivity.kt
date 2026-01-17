@@ -1,4 +1,4 @@
-package dev.ian.subcalendar
+package dev.vibran.subcalendar
 
 import io.flutter.embedding.android.FlutterActivity
 
