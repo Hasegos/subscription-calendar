@@ -28,7 +28,7 @@
 ## 🛠️ 기술 스택
 
 + **Frontend (Mobile)**: <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" /> <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" />
-+ **Tooling**: <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
++ **Tooling**: <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
 
 ## 📁 디렉토리 구조
 
@@ -89,8 +89,8 @@
 
 ### 홈 및 구독 관리
 
-<img width=450 src="https://github.com/user-attachments/assets/11831efb-d962-4437-aa4a-5c90e53a2d0d">
-<img width=450 src="https://github.com/user-attachments/assets/396c6d07-b893-499b-86d1-d5b8839ecaee">
+<img width=320 src="https://github.com/user-attachments/assets/11831efb-d962-4437-aa4a-5c90e53a2d0d">
+<img width=320 src="https://github.com/user-attachments/assets/396c6d07-b893-499b-86d1-d5b8839ecaee">
 
 + 메인 대시보드: 이번 달 총 구독료와 현재 구독 중인 서비스 개수를 한눈에 확인합니다.
 + 구독 추가/편집: 서비스명, 금액, 결제 주기(매월/매년), 결제일, 카테고리, 메모를 설정하여 구독 정보를 등록합니다.
@@ -100,8 +100,8 @@
 
 ### 달력 및 지출 분석
 
-<img width=450 src="https://github.com/user-attachments/assets/a3d0c22b-dddc-4fa0-a195-5943a990b518">
-<img width=450 src="https://github.com/user-attachments/assets/549aca8b-88da-4eb8-9d44-7a4454b1368b">
+<img width=320 src="https://github.com/user-attachments/assets/a3d0c22b-dddc-4fa0-a195-5943a990b518">
+<img width=320 src="https://github.com/user-attachments/assets/549aca8b-88da-4eb8-9d44-7a4454b1368b">
 
 + 결제일 달력: 달력 UI를 통해 날짜별 결제 예정 항목과 하루 총 결제 금액을 직관적으로 파악합니다.
 + 카테고리별 지출: 영상, 음악, 클라우드 등 카테고리별 지출 비중을 원형 차트(Pie Chart)로 시각화하여 보여줍니다.
@@ -111,8 +111,8 @@
 
 ### 절약 시뮬레이션 및 설정
 
-<img src="https://github.com/user-attachments/assets/0dc86951-46b6-407e-8da1-66458cdcfd54">
-<img src="https://github.com/user-attachments/assets/4b8c8cbb-ff67-4e6b-a65e-8ef25efc3b9c">
+<img width=320 src="https://github.com/user-attachments/assets/0dc86951-46b6-407e-8da1-66458cdcfd54">
+<img width=320 src="https://github.com/user-attachments/assets/4b8c8cbb-ff67-4e6b-a65e-8ef25efc3b9c">
 
 + 절약 시뮬레이터: 특정 구독 해지 시 줄어드는 월 지출액과 연간 총 절약 금액을 미리 계산해 볼 수 있습니다.
 + 오프라인 우선: 별도의 로그인 없이 모든 데이터는 기기 내 로컬 스토리지에 안전하게 저장됩니다.
@@ -125,19 +125,19 @@
 + 첫 실행 가이드: 앱 설치 후 최초 실행 시 서비스의 주요 기능을 안내하는 온보딩 화면을 제공합니다.
 + 로컬 기반 시작: 별도의 로그인이나 회원가입 절차 없이, 데이터 저장소 초기화 후 즉시 메인 화면으로 진입하여 프라이버시를 보호합니다.
 
-### 2) 💳 구독 관리 & 리마인드
+### 2) 구독 관리 & 리마인드
 
 + 항목 관리: 구독 서비스의 이름, 금액, 결제 주기(월/년), 카테고리를 상세하게 등록하고 수정 및 삭제할 수 있습니다.
-+ 스마트 리마인더: NotificationService를 통해 결제일 1~3일 전 사용자가 설정한 시간에 맞춰 로컬 푸시 알림을 발송합니다.
++ 스마트 리마인더: `NotificationService`를 통해 결제일 1~3일 전 사용자가 설정한 시간에 맞춰 로컬 푸시 알림을 발송합니다.
 
 ### 3) 결제 스케줄러 (달력)
 
-+ 시각적 일정 확인: table_calendar를 활용하여 날짜별 결제 예정 항목과 하루 총 결제 금액을 직관적으로 표시합니다.
++ 시각적 일정 확인: `table_calendar`를 활용하여 날짜별 결제 예정 항목과 하루 총 결제 금액을 직관적으로 표시합니다.
 + 결제일 보정 로직: 29~31일 결제 건이 해당 월에 없을 경우(예: 2월) 자동으로 말일로 보정하여 오차 없는 스케줄을 제공합니다.
 
 ### 4) 지출 분석 & 통계
 
-+ 카테고리별 분포: fl_chart를 이용해 영상, 음악, 생산성 등 카테고리별 지출 비중을 원형 차트로 시각화합니다.
++ 카테고리별 분포: `fl_chart`를 이용해 영상, 음악, 생산성 등 카테고리별 지출 비중을 원형 차트로 시각화합니다.
 + 월간 지출 요약: 이번 달 총 지출액과 구독 개수를 대시보드 형태로 제공하여 가계 경제 현황을 한눈에 파악합니다.
 
 ### 5) 절약 시뮬레이션 (Simulation)
@@ -147,7 +147,7 @@
 
 ### 6) 설정 & 데이터 보안
 
-+ 완전 오프라인 동작: 서버 통신 없이 StorageService를 통한 기기 내 로컬 저장 방식을 채택하여 개인정보 유출을 차단합니다.
++ 완전 오프라인 동작: 서버 통신 없이 `StorageService`를 통한 기기 내 로컬 저장 방식을 채택하여 개인정보 유출을 차단합니다.
 + 커스터마이징: 사용 중인 국가에 맞춘 통화 설정 및 알림 활성화 여부 등 사용자 맞춤형 환경 설정을 제공합니다.
 
 ## 📌 API 명세표
