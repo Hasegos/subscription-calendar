@@ -2,9 +2,11 @@
 
 ## 📁 프로젝트 개요
 
-- 로그인 없이 로컬(오프라인) 에서만 동작하는 구독 관리 앱입니다.
-- 구독 결제일을 달력으로 확인하고, 월 환산 지출/카테고리 분석, 해지·절감 시뮬레이션, 결제 리마인더 로컬 알림까지 제공합니다.
-- 프로젝트 기간 : 2026.01.08 ~ 2025.01.22
++ 로그인 없이 로컬(오프라인) 에서만 동작하는 구독 관리 앱입니다.
+
++ 구독 결제일을 달력으로 확인하고, 월 환산 지출/카테고리 분석, 해지·절감 시뮬레이션, 결제 리마인더 로컬 알림까지 제공합니다.
+
++ 프로젝트 기간 : 2026.01.08 ~ 2026.01.22
 
 ## 🤝 팀 소개
 <table border= 1px solid>
@@ -12,7 +14,7 @@
       <tr><td colspan=1 align="center">Solo Project</td></tr>
   </thead>
   <tr align="center">   
-    <td>이이언 (최수호)</td>   
+    <td>Hasegos (최수호)</td>   
   </tr>
   <tr>
     <td>
@@ -23,154 +25,142 @@
   </tr>
 </table>
 
-# 🛠️ 기술 스택
-- **Frontend**: <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"> <img src="https://img.shields.io/badge/Thymeleaf-005F0F?style=for-the-badge&logo=Thymeleaf&logoColor=white">
-- **Backend**: <img src="https://img.shields.io/badge/java 17-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
-- **Database**: <img src="https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/H2 Database-09476B?style=for-the-badge&logo=H2-Database&logoColor=white">
-- **Infra/DevOps**: <img src="https://img.shields.io/badge/AWS EC2-%23FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white"> <img src="https://img.shields.io/badge/AWS S3-%23FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white"> <img src="https://img.shields.io/badge/GitHub Actions-181717?style=for-the-badge&logo=github-actions&logoColor=white">
-- **Tooling**: <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/notion-000?style=for-the-badge&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/Intellij IDEA-000000?style=for-the-badge&logo=Intellij-IDEA&logoColor=white">
+## 🛠️ 기술 스택
+
++ **Frontend (Mobile)**: <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" /> <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" />
++ **Tooling**: <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
 
 ## 📁 디렉토리 구조
 
 ```
-repoboard/
-├── 📦 io.github.repoboard/   # 애플리케이션 Java 패키지 루트
-│   ├──   common/             # 공통 도메인·유틸·예외 모듈
-│   │   ├──  domain/          # BaseTime 등 공통 엔티티, 생성/수정 시간·주체(Auditor) 자동 주입
-│   │   ├──  event/           # S3 객체 완전 삭제 등 도메인 이벤트 처리
-│   │   ├──  exception/       # GitHub API rate limit, Content-Type 오류용 커스텀 예외
-│   │   ├──  handler/         # 전역 예외 처리 핸들러 (API/MVC 공통)
-│   │   ├──  util/            # README 마크다운 정제 및 README 조회 전략 유틸
-│   │   ├── ✅ validation/    # 커스텀 Validator 및 검증 애노테이션
-│   ├── 🧭 controller/        # 웹 요청 처리 컨트롤러
-│   ├── 📨 dto/               # 레이어 간 데이터 전송 DTO
-│   │   ├──  auth/            # 로그인·회원가입용 사용자 DTO
-│   │   ├──  github/          # GitHub API 응답 매핑용 DTO
-│   │   ├──  request/         # 비밀번호 변경, 레포 저장 등 요청 전용 DTO
-│   │   ├──  strategy/        # 검색 쿼리 전략/파라미터 보관용 DTO
-│   │   ├──  view/            # 화면 렌더링 전용 View DTO
-│   ├── 🧩 model/             # JPA 엔티티 및 도메인 모델
-│   │   ├──  enums/           # 도메인에서 사용하는 Enum 타입 모음
-│   ├── 🗂️  repository/       # Spring Data JPA 리포지토리 인터페이스
-│   ├── 🔐 security/          # 인증·인가 및 보안 관련 구성
-│   │   ├── ⚙️ config/        # Security, PasswordEncoder, JPA, Cache, WebClient 등 설정
-│   │   ├── ⚙️ core/          # 로컬 로그인 사용자 Principal(CustomUserPrincipal 등)
-│   │   ├── ⚙️ oauth2/        # GitHub/Google OAuth2 로그인 사용자 처리
-│   │   ├── ⚙️ userdetails/   # CustomUserDetailsService 구현체
-│   ├── 🧠 service/           # 비즈니스 로직 및 트랜잭션 처리
-│   └── 🚀 RepoBoardApplication.java  # Spring Boot 메인 실행 클래스
-
-├── 📁 resources/
-│   ├── 🌐 static/            # 정적 자원 (브라우저에서 직접 접근)
-│   │   ├── 🎨 css/           # 전역·페이지별 스타일시트
-│   │   ├── 🖼️ images/        # 정적 이미지 리소스
-│   │   └── ⚙️ js/            # 화면 동작용 자바스크립트
-│   ├── 📄 templates/         # Thymeleaf 템플릿
-│   │   ├── 💬 admin/         # 관리자 기능 관련 뷰
-│   │   ├── 🔐 auth/          # 로그인/회원가입 등 인증 관련 뷰
-│   │   ├──  fragment/        # 공통 레이아웃 (header/footer 등)
-│   │   ├──  profile/         # 사용자 오픈 프로필 관련 뷰
-│   │   ├── 🧩 repository/    # 저장 레포 목록·상세 관련 뷰
-│   │   ├──  search/          # GitHub 레포·유저 검색 관련 뷰
-│   │   ├── 📝 setting/       # 계정·비밀번호 등 사용자 설정 뷰
-│   │   └── 🏠 home.html      # 홈 화면 뷰 (루트 페이지)
-│   └──  application.yml              # 공통 설정(프로필 공통으로 사용하는 기본 설정)
-│   └──  application-dev.yml          # 개발 환경 프로필 설정
-│   └──  application-example-prod.yml # 운영 환경 예시 설정(민감 정보 제거용 샘플)
-│   └──  application-prod.yml         # 실제 운영 환경 설정(GitHub Secret/환경 변수와 연동)
-│   └──  logback-spring.xml           # 애플리케이션·관리자 로그 설정
+📦 subscription-calendar/
+├── 📁 lib/
+│   ├── 📌 constants/
+│      └── app_constants.dart       # 앱 색상, 텍스트 스타일 등 전역 상수
+│   ├── 🧾 models/
+│   │   └── subscription.dart        # 구독 정보 데이터 모델
+│   ├── 📱 screens/                  
+│   │   ├── analytics_screen.dart    # 지출 분석 및 차트 화면
+│   │   ├── calendar_screen.dart     # 구독 결제일 확인 달력 화면
+│   │   ├── home_screen.dart         # 대시보드 및 구독 리스트 메인 화면
+│   │   ├── onboarding_screen.dart   # 앱 가이드 및 시작 화면
+│   │   ├── savings_simulator_screen.dart # 절약 시뮬레이션 계산기 화면
+│   │   └── settings_screen.dart     # 프로필 및 앱 설정 화면
+│   ├── 🔌 services/
+│   │   ├── notification_service.dart  # 푸시 알림 로직
+│   │   └── storage_service.dart       # 데이터 저장(DB) 로직
+│   ├── 🧰 utils/
+│   │   ├── category_utils.dart        # 카테고리 분류 관련 유틸
+│   │   ├── format_utils.dart          # 통화, 날짜 포맷 변환
+│   │   ├── helpers.dart               # 범용 도구 함수
+│   │   └── subscription_utils.dart    # 구독 데이터 처리 비즈니스 로직
+│   ├── 🧩 widgets/
+│   │   ├── add_subscription_modal.dart # 구독 추가 모달 위젯
+│   │   └── subscription_card.dart     # 리스트 항목 카드 위젯
+│   └── 🚀 main.dart                  # 앱 실행 진입점
+├── 🤖 android/                      # Android 네이티브 설정 (패키지명, 권한 등)
+└── pubspec.yaml                     # 외부 패키지(intl 등) 및 에셋 경로 설정
 ```
 
 ## 📊 ERD (Entity Relationship Diagram)
 
-### 🗺️ ERD 개요
+### 💳 Subscription (구독 정보)
 
-<img width="800" height="484" alt="Image" src="https://github.com/user-attachments/assets/94605594-064a-43e2-a007-2f901cd242b7" />
+| 필드명 (Field) | 타입 (Type) | 기본값 (Default) | 설명 (Description)                   |
+|----|----|----|------------------------------------|
+| id | String | - | 구독 항목 고유 식별자 (PK)                  |
+| name |String | - | 구독 서비스 명칭 (예: Netflix)             |
+| amount | double | - | 정기 결제 금액                           |
+| cycle | Enum | - | "결제 주기 (monthly, yearly)"          |
+| billingDay | int | - | 매달/매년 결제 예정일 (1~31)                |
+| category | Enum | - | "서비스 카테고리 (video, music, cloud 등)" |
+| memo | String? | null | 사용자 추가 메모 (선택 사항)                  |
+| pinned | bool | false | 목록 상단 고정 여부                        |
+| createdAt | String | - | 데이터 생성 일시 (ISO8601)                |
+| reminderEnabled | bool | true | 결제일 전 알림 활성화 여부 |
+| reminderDaysBefore | int | 3 | 결제일 몇 일 전 알림 발송 설정 |
 
 ### 📚 프로젝트 문서 / 회고
 
-- 기획, 요구사항 정의, ERD 상세, 화면 설계, 회고(트러블슈팅 포함)는 아래 노션에 정리했습니다.
-    - Notion: [RepoBoard 프로젝트 문서](https://www.notion.so/RepoBoard-25cbe056f64980f49b2dd62d7c029bda)
+- 기획, 요구사항 정의, ERD 상세, 화면 설계, 회고는 아래 노션에 정리했습니다.
+    - Notion: [구독 달력](https://www.notion.so/2e2be056f649808d9f18cb118420bf1f)
 
-## 🗏 페이지 구성
+## 📱 화면 구성
 
-### 메인 페이지
+### 홈 및 구독 관리
 
-<img width="700" height="600" alt="Image" src="https://github.com/user-attachments/assets/33d9453a-a1f1-46aa-824b-47e574aef950" />
+<img width=450 src="https://github.com/user-attachments/assets/11831efb-d962-4437-aa4a-5c90e53a2d0d">
+<img width=450 src="https://github.com/user-attachments/assets/396c6d07-b893-499b-86d1-d5b8839ecaee">
 
-- 언어 버튼(Java, JS, Python 등)과 정렬 옵션(인기순 / 최신순)으로 GitHub 레포를 탐색한다.
-- 미리 정의한 쿼리 전략(언어·기간·별점 조건)을 순환해 다양한 레포를 노출한다.
-- WebClient와 GitHub Search API, Caffeine 캐시를 이용해 레포 조회 성능과 호출 빈도를 최적화한다.
-- 화면에서는 무한 스크롤을 사용해 목록을 계속해서 로딩하고, Rate Limit 발생 시 재시도 지연 및 안내 메시지를 표시한다.
-
----
-
-### 로그인 / 회원가입 페이지
-
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/802da984-66ee-4272-9995-455b56803dcc" />
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/fd2cba5c-4428-468f-ba59-e28e3441fbea" />
-
-- 폼 로그인(이메일/비밀번호)과 GitHub·Google OAuth2 로그인을 모두 지원한다.
-- 회원가입 시 서버 단에서 이메일 중복, 비밀번호 규칙 등을 `@Valid`와 `BindingResult`로 검증한다.
-- OAuth2 로그인 시 신규 사용자는 자동으로 `User` 엔티티가 생성되고, GitHub 프로필 정보를 기반으로 오픈 프로필이 초기화된다.
-- 이미 로그인된 사용자가 로그인 페이지에 접근하면 메인 페이지로 리다이렉트한다.
++ 메인 대시보드: 이번 달 총 구독료와 현재 구독 중인 서비스 개수를 한눈에 확인합니다.
++ 구독 추가/편집: 서비스명, 금액, 결제 주기(매월/매년), 결제일, 카테고리, 메모를 설정하여 구독 정보를 등록합니다.
++ 퀵 서치: 상단 검색바를 통해 등록된 구독 서비스를 빠르게 찾을 수 있습니다.
 
 ---
 
-### 오픈 프로필 설정 / 보기 페이지
+### 달력 및 지출 분석
 
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/d1b3aff3-7590-4b53-a8d8-ad17af886433" />
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/2adce381-dca8-46ed-8869-d4512f3c2b59" />
+<img width=450 src="https://github.com/user-attachments/assets/a3d0c22b-dddc-4fa0-a195-5943a990b518">
+<img width=450 src="https://github.com/user-attachments/assets/549aca8b-88da-4eb8-9d44-7a4454b1368b">
 
-- 최초 접속 시 GitHub 프로필 URL 또는 username을 입력해 오픈 프로필을 생성할 수 있다.
-- GitHub API를 통해 아바타, 이름, bio, followers, 공개 레포 수 등을 주기적으로 새로고침한다.
-- 프로필 공개 범위(PUBLIC / PRIVATE)를 토글해 다른 사용자에게 내 저장 레포를 공개할지 여부를 제어한다.
-- 프로필 이미지는 S3에 저장하며, 변경 과정에서 더 이상 사용하지 않는 객체는 도메인 이벤트를 통해 정리한다.
-
----
-
-### 저장한 레포지토리 페이지
-
-<img width="700" height="600" alt="Image" src="https://github.com/user-attachments/assets/9f1cf5f6-14d1-4047-ae34-cd4938a7dad3" />
-
-- 내가 저장한 레포를 **핀 고정 영역**과 **일반 영역**으로 구분해 보여준다.
-- 언어 필터와 정렬 옵션(인기순 / 최신순), 페이지네이션을 지원해 저장 레포를 효율적으로 탐색할 수 있다.
-- 각 레포 카드에서 개인 메모 작성·수정, 핀 고정/해제, 삭제와 같은 관리 기능을 제공한다.
-- 저장된 레포의 README를 GitHub에서 가져와 HTML로 렌더링하고, 콘텐츠 타입 오류나 404 등 예외 상황은 전용 예외 클래스로 처리한다.
++ 결제일 달력: 달력 UI를 통해 날짜별 결제 예정 항목과 하루 총 결제 금액을 직관적으로 파악합니다.
++ 카테고리별 지출: 영상, 음악, 클라우드 등 카테고리별 지출 비중을 원형 차트(Pie Chart)로 시각화하여 보여줍니다.
++ 알림 예정 표시: 결제일 전 알림(D-Day) 설정 상태를 리스트에서 바로 확인합니다.
 
 ---
 
-### 검색 페이지
+### 절약 시뮬레이션 및 설정
 
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/a5562891-a27a-4827-babf-638dc02d22f8" />
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/f33ea877-b77f-4f75-ab31-bf634cdb7bd6" />
+<img src="https://github.com/user-attachments/assets/0dc86951-46b6-407e-8da1-66458cdcfd54">
+<img src="https://github.com/user-attachments/assets/4b8c8cbb-ff67-4e6b-a65e-8ef25efc3b9c">
 
-- 하나의 검색 진입 화면에서 “레포지토리 검색”과 “사용자 검색” 중 원하는 검색 타입을 선택할 수 있다.
-- 레포지토리 검색은 언어, 정렬 기준, 검색어를 조합해 GitHub 레포를 조회하고, 추가 결과는 스크롤을 통해 점진적으로 불러온다.
-- 사용자 검색은 GitHub username을 기준으로 오픈 프로필이 공개된 사용자를 찾고, 해당 사용자가 RepoBoard에 저장한 레포 목록까지 함께 제공한다.
-- 검색어는 Sanitize 유틸을 통해 XSS·스크립트·Markdown 링크 등을 제거한 뒤 처리해 보안과 안정성을 확보한다.
++ 절약 시뮬레이터: 특정 구독 해지 시 줄어드는 월 지출액과 연간 총 절약 금액을 미리 계산해 볼 수 있습니다.
++ 오프라인 우선: 별도의 로그인 없이 모든 데이터는 기기 내 로컬 스토리지에 안전하게 저장됩니다.
++ 알림 설정: 결제일 3일 전(D-3) 오전 10시 등 원하는 시점에 리마인드 알림을 받을 수 있도록 설정합니다.
 
----
+## ✨ 핵심 기능 (Core Features)
 
-### 설정 페이지
+### 1) 온보딩 & 사용자 흐름
 
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/af16d8bb-f203-493a-b571-21caba7ef4bc" />
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/4bdff4e0-cc98-4250-8ed2-c3c9aaefbfe1" />
++ 첫 실행 가이드: 앱 설치 후 최초 실행 시 서비스의 주요 기능을 안내하는 온보딩 화면을 제공합니다.
++ 로컬 기반 시작: 별도의 로그인이나 회원가입 절차 없이, 데이터 저장소 초기화 후 즉시 메인 화면으로 진입하여 프라이버시를 보호합니다.
 
-- 로그인 타입(LOCAL / OAuth2)에 따라 서로 다른 설정 화면을 제공한다.
-- LOCAL 계정 사용자는 현재 비밀번호 검증을 거쳐 새 비밀번호로 변경할 수 있다.
-- 모든 사용자는 계정 삭제 기능을 통해 서비스를 탈퇴할 수 있으며, 삭제 시 `DeleteUser` 엔티티에 사용자와 프로필 정보가 백업된다.
+### 2) 💳 구독 관리 & 리마인드
 
----
++ 항목 관리: 구독 서비스의 이름, 금액, 결제 주기(월/년), 카테고리를 상세하게 등록하고 수정 및 삭제할 수 있습니다.
++ 스마트 리마인더: NotificationService를 통해 결제일 1~3일 전 사용자가 설정한 시간에 맞춰 로컬 푸시 알림을 발송합니다.
 
-### 관리자 페이지
+### 3) 결제 스케줄러 (달력)
 
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/d879e559-aa10-47d0-860f-d135ebce1c79" />
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/20771449-5844-440c-b30a-222a7db82c87" />
++ 시각적 일정 확인: table_calendar를 활용하여 날짜별 결제 예정 항목과 하루 총 결제 금액을 직관적으로 표시합니다.
++ 결제일 보정 로직: 29~31일 결제 건이 해당 월에 없을 경우(예: 2월) 자동으로 말일로 보정하여 오차 없는 스케줄을 제공합니다.
 
-- 전체 사용자 목록과 삭제된 사용자 기록을 한 화면에서 관리할 수 있다.
-- 관리자는 개별 사용자에 대해 계정 삭제, 삭제된 계정 복원, 상태(ACTIVE / SUSPENDED) 전환 등의 액션을 수행할 수 있다.
-- 별도의 로그 화면에서 관리자 계정이 수행한 삭제·복원·상태 변경 같은 모든 관리자 액션 이력을 조회할 수 있다.
-- 관리자 영역과 모니터링용 엔드포인트는 관리자 권한(ROLE_ADMIN)을 가진 계정만 접근 가능하다.
+### 4) 지출 분석 & 통계
 
----
++ 카테고리별 분포: fl_chart를 이용해 영상, 음악, 생산성 등 카테고리별 지출 비중을 원형 차트로 시각화합니다.
++ 월간 지출 요약: 이번 달 총 지출액과 구독 개수를 대시보드 형태로 제공하여 가계 경제 현황을 한눈에 파악합니다.
+
+### 5) 절약 시뮬레이션 (Simulation)
+
++ 가상 해지 시나리오: 현재 구독 중인 항목을 해지했을 때 줄어드는 월 지출액과 연간 총 절약 예상 금액을 실시간으로 계산합니다.
++ 가상 추가 기능: 새로운 서비스를 구독하기 전, 해당 지출이 전체 예산에 미치는 영향을 미리 시뮬레이션해 볼 수 있습니다.
+
+### 6) 설정 & 데이터 보안
+
++ 완전 오프라인 동작: 서버 통신 없이 StorageService를 통한 기기 내 로컬 저장 방식을 채택하여 개인정보 유출을 차단합니다.
++ 커스터마이징: 사용 중인 국가에 맞춘 통화 설정 및 알림 활성화 여부 등 사용자 맞춤형 환경 설정을 제공합니다.
+
+## 📌 API 명세표
+
+| 분류 | 기능명 | 메서드 / 경로         | 입력 데이터  | 설명                                    |
+|----|----|------------------|---------|---------------------------------------|
+| 데이터 | 구독 정보 로드 | `loadSubscriptions` | -       | `SharedPreferences`에서 JSON을 읽어 구독 리스트로 변환 | 
+| 데이터 |구독 정보 저장 | `saveSubscriptions` | `List<Subscription>` | 구독 리스트를 JSON 문자열로 변환하여 로컬에 영구 저장      |
+| 인증 | 온보딩 완료 확인 | `isOnboardingComplete` | -       | 앱 초기 가이드 종료 여부를 로컬 저장소에서 조회           |
+| 인증 | 온보딩 완료 기록 | `completeOnboarding` | -       | 사용자가 가이드를 마쳤을 때 완료 플래그(`true`)를 저장      |
+| 알림 |알림 서비스 초기화 | `initialize`       | -       | 타임존(`Asia/Seoul`) 및 플랫폼별 알림 플러그인 설정     |
+| 알림 | 권한 요청 | `requestPermission` | -       | OS 수준의 알림 권한 팝업을 호출하고 허용 상태를 반환       |
+| 알림 | 단일 알림 등록 | `scheduleSubscriptionReminder` | `Subscription` | 결제일 N일 전 오전 10시에 맞춰 로컬 푸시 알림을 예약      |
+| 알림 | 전체 알림 재등록 | `scheduleAllReminders` | `List<Subscription>` |기존 예약된 모든 알림을 취소하고 리스트 기반으로 전수 예약 |
+| 관리 | 특정 알림 삭제 | `cancelNotification` | `subscriptionId` | 구독 항목의 ID 해시코드를 이용해 예약된 특정 알림만 취소 |       
+| 관리 | 전체 초기화 | `clearAll / cancelAll` | -       | 로컬 저장소 비우기 및 예약된 모든 알림 스케줄 삭제   |        
